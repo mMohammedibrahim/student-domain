@@ -493,15 +493,18 @@ if __name__ == "__main__":
     - Docker containers with production settings
     - Cloud platform-specific deployment methods
     """
+    # Get port from environment variable (Railway, Heroku, etc.) or default to 8000
+    port = int(os.getenv("PORT", 8000))
+    
     print("🚀 Starting VoiceBot Enterprise...")
-    print("📍 Frontend available at: http://localhost:8000")
-    print("📚 API documentation at: http://localhost:8000/docs")
-    print("🔧 Health check at: http://localhost:8000/health")
+    print(f"📍 Frontend available at: http://localhost:{port}")
+    print(f"📚 API documentation at: http://localhost:{port}/docs")
+    print(f"🔧 Health check at: http://localhost:{port}/health")
     
     uvicorn.run(
         "main_simple:app",
         host="0.0.0.0",  # Accept connections from any IP
-        port=8000,       # Default development port
-        reload=True,     # Auto-reload on code changes
+        port=port,       # Use environment PORT or default 8000
+        reload=False,    # Disable reload in production
         log_level="info" # Detailed logging for development
     )
