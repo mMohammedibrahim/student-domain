@@ -1,0 +1,17 @@
+# Add these to .gitignore for deployment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+.venv/
+venv/
+.DS_Store
+.idea/
+.vscode/
+*.log
+logs/
+.pytest_cache/
+node_modules/
+package-lock.json

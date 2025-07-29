@@ -48,7 +48,14 @@ app = FastAPI(
 # This allows the frontend to communicate with the API from different origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify exact origins
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:8000", 
+        "https://mohamedibrahimitsmvec.me",
+        "https://www.mohamedibrahimitsmvec.me",
+        "https://mmohammedibrahim.github.io",
+        "*"  # Allow all origins for development
+    ],
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
